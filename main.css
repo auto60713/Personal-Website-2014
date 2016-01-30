@@ -1,0 +1,155 @@
+body{
+	margin: 0;
+    overflow:hidden; 
+}
+#canvas{
+    position: relative;
+    z-index: -20;
+    opacity: 0.4;
+}
+
+.menu-btn,#mp3_ctrl{
+    transition: color .2s linear;
+    -o-transition: color .2s linear;
+    -moz-transition: color .2s linear;
+    -webkit-transition: color .2s linear;
+}
+#index .title{
+    transition: color .2s linear;
+    -o-transition: color .2s linear;
+    -moz-transition: color .2s linear;
+    -webkit-transition: color .2s linear;
+}
+/* 主題色 */
+body{
+    background-color: #212221;
+}
+#index .title,.menu-btn,#mp3_ctrl{
+    color: #7EA432;
+}
+div.page{
+    background-color: rgba(255,255,255,0.6) ;
+}
+div.page,#exit,.main-title{
+    color: #212221;
+}
+/* hover */
+.menu-btn:hover,#mp3_ctrl:hover{
+    color: #C1DC8B;
+}
+#index .title:hover{
+    cursor: context-menu;
+
+}
+@keyframes pop
+{
+
+}
+@-o-keyframes pop
+{
+
+}
+@-moz-keyframes pop
+{
+0% {transform:scale(1,1);}
+10% {transform:scale(1.05,0.8);}
+20% {transform:scale(0.95,1.2);}
+30% {transform:scale(1,1);}
+100% {transform:scale(1,1);}
+}
+@-webkit-keyframes pop
+{
+
+}
+
+/* 大小 */
+#index{
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+}
+
+/* 位置 */
+#index .title{
+    margin: 0px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 150px;
+
+}
+li{
+    display: inline;
+    list-style: none;
+    margin-right: 50px;
+}
+li a{
+    font-family: Arial;
+    font-weight: bold;
+    text-decoration: non
+}
+
+
+div.page{
+
+    position: fixed;
+    overflow: hidden;
+    margin-left: 15%;
+min-height: 470px;
+    height: 80%;
+    width: 0%;
+
+}
+
+div.display{
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+
+#exit{
+    float:right; 
+    margin: 5px;
+    text-decoration: none;
+}
+
+.page .title{
+padding-top: 60px;
+padding-left: 100px;
+}
+.page .main-title{
+    font-family: Arial Narrow;
+    font-weight: bold;
+    font-size: 80px;
+    text-decoration: none;
+}
+.page .vice-title{
+    position: relative;
+    left: 20px;
+    bottom: -8px;
+    font-family: Arial Narrow;
+    font-weight: bold;
+    font-size: 50px;
+}
+.page .text{
+    font-family: Arial Narrow;
+    font-size: 14px;
+}
+/* 內文 */
+.text{
+    padding-top: 20px;
+    padding-left: 288px;
+}
+
+    
+#mp3_ctrl{
+    position: fixed;
+    cursor: pointer;
+    width: 60px;
+    padding: 5px;
+    bottom: 0px;
+    right: 30px;
+}
+#mp3_ctrl .ps{
+    margin-left: 5px;
+}

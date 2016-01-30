@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AutoPlay</title>
+	<script src="jquery-1.10.2.min.js"></script>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="main.css">
+</head>
+<body>
+
+
+<!-- index -->
+<div id="index">
+<h1 class="title">AutoPlay</h1>
+<ul>
+    <li><a class="menu-btn" href="#about">[ About ]</a></li>
+    <li><a class="menu-btn" href="#QnA">[ QnA ]</a></li>
+    <li><a class="menu-btn" href="#Works">[ Works ]</a></li>
+</ul>
+</div>
+
+
+
+
+<div id="about" class="page"> <div class="display"> <a href="#index" id="exit">[X]</a>
+    <div class="title"><a class="main-title">關於</a><a class="vice-title">About me</a></div>
+
+<div class="text">
+<br>名字：林默亞(Auto)
+<br>興趣：網頁設計.遊戲.音樂
+</div>
+
+</div></div>
+
+<div id="QnA" class="page"> <div class="display"> <a href="#index" id="exit">[X]</a>
+    <div class="title"><a href="http://ask.fm/auto60713" target="_blank" class="main-title">問答</a><a class="vice-title">Question & Answer</a></div>
+
+<div class="text">
+
+<br>為什麽叫做Auto：
+<br>當初在想綽號,因為要好記,所以就想說用"顏色+動物" 就取"黑兔"
+<br>英文用諧音auto,間接創立AutoPlay這個品牌
+<br><br>黑綠：
+<br>黑綠是AutoPlay的代表色
+<br><br>目標：
+<br>想要用自己的能力做出改變世界的應用，
+<br>(例如google地圖,windeow作業系統,apple手機)
+<br>或是做出一個大家都會很想用的系統或軟體。
+</div>
+
+</div></div>
+
+<div id="Works" class="page"> <div class="display"> <a href="#index" id="exit">[X]</a>
+    <div class="title"><a class="main-title">作品</a><a class="vice-title">Works</a></div>
+<div class="text">
+<br>長榮大學-ACG研究社形象網站
+<br><br>(整理中...)
+</div>
+
+</div></div>
+
+
+
+
+
+
+<div id="mp3_ctrl">BGM<a class="ps">Play</a></div>
+<audio id="mp3" loop> <source src="song.mp3" type="audio/mpeg"> </audio> 
+<canvas id="canvas"></canvas>
+</body>
+
+<script src="liz.js"></script>
+<script>
+$(window).resize(function(){ set(); });
+
+//載入頁面時 依照hash秀出對應的頁面
+$(document).ready(function(){
+
+    set();
+    if(location.hash){  var newhash = window.location.hash.substring(1);
+    //載入hash並動作   
+    
+        if(newhash == 'index'){
+            home_fadeIn();
+        }
+        else{
+
+            $( "#index" ).css( "opacity", "0" );
+            page_fadeIn(newhash);  
+
+        }
+    }
+    else home_fadeIn();
+
+});
+
+//當hash發生改變 要啟動轉場動畫
+window.onhashchange = function(){
+       
+    if(location.hash){  var hash = location.hash.substring(1);
+    //載入hash並動作
+
+    if(hash == 'index'){
+
+    var sound = new Audio("out.wav").play();
+
+        $( ".page" ).animate({
+           opacity:  "0",
+        }, 400);
+
+        setTimeout(function(){
+
+        $( '.page' ).css({ "width":"0px" , "min-width": "0px" });
+        $( '.display' ).css( "opacity", "0" );
+        home_fadeIn();
+
+        }, 500);
+
+    }
+    else{
+    var sound = new Audio("out.wav").play();
+
+        $( "#index" ).animate({
+           opacity:  "0",
+        }, 400);
+
+        page_fadeIn(hash);  
+
+    }
+        
+
+    }
+}
+
+
+    function set() {
+
+        var window_height = $(window).height();
+        var index_height = $("#index").height();
+        var page_height = $(".page").height();
+        $('body').css( "height", window_height);
+        $( "#index" ).css( "margin-top", (window_height-index_height)/2);
+        if (window_height>470) $( ".page" ).css( "margin-top", (window_height-page_height)/2);
+        else $( ".page" ).css( "margin-top", 0);
+    }
+    function home_fadeIn() {
+
+        $( "#index" ).animate({
+           opacity: "1",
+        }, 700);
+
+    }
+    function page_fadeIn(hash) {
+
+        $( "#"+hash ).css( "opacity", "1" );
+
+        setTimeout(function(){
+        $( "#"+hash ).animate({
+           "width": "70%"
+        }, 400);
+
+        }, 500);
+
+        setTimeout(function(){
+        $( ".display" ).animate({
+           opacity: "1",
+        }, 400);
+     
+        }, 700);
+    }
+
+
+//BGM
+$("#mp3_ctrl").click(function() {
+
+    var oAudio = document.getElementById('mp3');
+    if(oAudio.paused){
+       oAudio.play();
+       $(".ps").text('Stop');
+    }
+    else{
+       oAudio.pause();
+       $(".ps").text('Play');
+    }
+});
+
+</script>
+</html>
