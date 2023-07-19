@@ -1,6 +1,7 @@
 # Ozen's personal website (2014)
-I learned many popular web technologies in 2014. And want to build a personal web page, so did this work. 
-At the time it was using the 'Auto' nickname, and founded the 'Autoplay' brand.
+
+I learned many popular web technologies in 2014. I want to build a personal web page so I did this work. 
+I took a nickname 'Auto' and founded the 'Autoplay' brand.
 
 ## Highlights
  * Full version of the canvas background
@@ -9,9 +10,9 @@ At the time it was using the 'Auto' nickname, and founded the 'Autoplay' brand.
  * Lively transition animation
  * Minimalist design
 
-## Using technology
+## Libraries
  * jquery 1.10.2
 
 ## Weakness
  * RWD design is not good enough
- * May not work on mobile devices
+ * Maybe not pure on mobile devices
